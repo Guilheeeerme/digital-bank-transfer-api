@@ -4,15 +4,14 @@ import {
   Entity,
   JoinColumn,
   OneToOne,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
 } from "typeorm";
-import { v4 as uuid } from "uuid";
 
 import Account from "./Account";
 
 @Entity("transfers")
 export default class Transfer {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   readonly id: string;
 
   @Column()
@@ -27,10 +26,4 @@ export default class Transfer {
 
   @CreateDateColumn()
   created_at: Date;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
 }
