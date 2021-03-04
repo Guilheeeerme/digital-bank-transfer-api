@@ -5,5 +5,4 @@ build/
 tmp/
 temp/
 *.txt
-.env
-ormconfig.json
+*.env
