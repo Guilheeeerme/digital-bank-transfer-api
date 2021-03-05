@@ -17,7 +17,7 @@ export default class Transfer {
   @Column()
   account_id: string;
 
-  @OneToOne(() => Transfer)
+  @OneToOne((type) => Transfer)
   @JoinColumn({ name: "account_destination_id" })
   account_destination_id: Account;
 

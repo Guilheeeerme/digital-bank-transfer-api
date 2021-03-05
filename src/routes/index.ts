@@ -4,6 +4,6 @@ import accountRouter from "./account.routes";
 
 const routes = Router();
 
-routes.use("/account", accountRouter);
+routes.use("/accounts", accountRouter);
 
 export default routes;
