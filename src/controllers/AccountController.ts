@@ -3,7 +3,7 @@ import { getRepository } from "typeorm";
 
 import AccountModel from "../models/Account";
 
-export default class Account {
+class Account {
   async show(request: Request, response: Response) {
     try {
       const repository = getRepository(AccountModel);
@@ -52,3 +52,5 @@ export default class Account {
     }
   }
 }
+
+export default new Account();

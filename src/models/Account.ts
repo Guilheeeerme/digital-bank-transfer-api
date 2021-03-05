@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 
-import { compare, hash } from "bcrypt";
+import { hash } from "bcrypt";
 
 @Entity("accounts")
 export default class Account {
