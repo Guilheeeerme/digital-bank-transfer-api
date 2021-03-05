@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { getRepository } from "typeorm";
-import { hash } from "bcrypt";
 
 import AccountModel from "../models/Account";
 

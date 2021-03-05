@@ -7,3 +7,5 @@ TYPEORM_PORT = 5432
 TYPEORM_SYNCHRONIZE = true
 TYPEORM_LOGGING = true
 TYPEORM_ENTITIES = ./src/models/*.ts
+
+SECRET_TOKEN= u@@@¨$¨@#&#&#&

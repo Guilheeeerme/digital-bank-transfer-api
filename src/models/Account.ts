@@ -34,8 +34,4 @@ export default class Account {
   async hashPassword() {
     this.secret = await hash(this.secret, 8);
   }
-
-  checkPassword(password) {
-    return compare(password, this.secret);
-  }
 }

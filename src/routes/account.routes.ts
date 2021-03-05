@@ -1,13 +1,13 @@
 import { Router } from "express";
 
-import AccountController from "../controllers/Account";
+import AccountController from "../controllers/AccountController";
 
-const accountRouter = Router();
+const router = Router();
 
 const accountController = new AccountController();
 
-accountRouter.get("/", accountController.show);
-accountRouter.get("/:id/balance", accountController.balance);
-accountRouter.post("/", accountController.create);
+router.get("/", accountController.show);
+router.get("/:id/balance", accountController.balance);
+router.post("/", accountController.create);
 
-export default accountRouter;
+export default router;
