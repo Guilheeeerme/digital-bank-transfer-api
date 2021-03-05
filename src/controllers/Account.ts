@@ -35,20 +35,19 @@ export default class Account {
   async create(request: Request, response: Response) {
     try {
       const { name, cpf, secret, balance } = request.body;
-      const hashedSecret = await hash(secret, 8);
 
       const repository = getRepository(AccountModel);
 
       const account = repository.create({
         name,
         cpf,
-        secret: hashedSecret,
+        secret,
         balance,
       });
 
-      await repository.save({ name, cpf, balance });
+      await repository.save(account);
 
-      return response.status(201).json(account);
+      return response.status(201).json({ name, cpf, balance });
     } catch (error) {
       return response.status(400).send();
     }

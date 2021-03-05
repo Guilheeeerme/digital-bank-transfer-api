@@ -1,9 +1,13 @@
 import {
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
 } from "typeorm";
+
+import { compare, hash } from "bcrypt";
 
 @Entity("accounts")
 export default class Account {
@@ -24,4 +28,14 @@ export default class Account {
 
   @CreateDateColumn()
   created_at: Date;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  async hashPassword() {
+    this.secret = await hash(this.secret, 8);
+  }
+
+  checkPassword(password) {
+    return compare(password, this.secret);
+  }
 }
