@@ -48,6 +48,7 @@ class Account {
 
       return response.status(201).json({ name, cpf, balance });
     } catch (error) {
+      console.log(error);
       return response.status(400).send();
     }
   }

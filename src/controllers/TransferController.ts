@@ -44,7 +44,8 @@ class Transfer {
 
       const transfer = transferRepository.create({
         account_id: request.userId,
-        ...request.body,
+        account_destination_id,
+        amount,
       });
 
       await transferRepository.save(transfer);

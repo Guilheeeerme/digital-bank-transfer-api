@@ -2,8 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import Account from "./Account";
 
 @Entity("transfers")
 export default class Transfer {
@@ -13,8 +16,9 @@ export default class Transfer {
   @Column()
   account_id: string;
 
-  @Column()
-  account_destination_id: string;
+  @OneToOne((type) => Account)
+  @JoinColumn({ name: "account_destination_id" })
+  account_destination_id: Account;
 
   @Column()
   amount: number;
