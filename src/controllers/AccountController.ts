@@ -32,9 +32,9 @@ class Account {
   }
 
   async create(request: Request, response: Response) {
-    try {
-      const { name, cpf, secret, balance } = request.body;
+    const { name, cpf, secret, balance } = request.body;
 
+    try {
       const repository = getRepository(AccountModel);
 
       const account = repository.create({

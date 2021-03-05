@@ -2,24 +2,19 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 
-import Account from "./Account";
-
 @Entity("transfers")
 export default class Transfer {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @Column()
   account_id: string;
 
-  @OneToOne((type) => Transfer)
-  @JoinColumn({ name: "account_destination_id" })
-  account_destination_id: Account;
+  @Column()
+  account_destination_id: string;
 
   @Column()
   amount: number;
