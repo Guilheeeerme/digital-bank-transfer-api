@@ -29,8 +29,14 @@ class Transfer {
       const origem = await accountRepository.findOne(request.userId);
       const destino = await accountRepository.findOne(account_destination_id);
 
+      if (!destino) {
+        return response
+          .status(400)
+          .json({ error: "Destination account invalid" });
+      }
+
       if (origem.balance <= 0 || amount > origem.balance) {
-        return response.status(400).json({ error: "Saldo insuficiente" });
+        return response.status(400).json({ error: "Insufficient balance" });
       }
 
       await accountRepository.update(
@@ -50,7 +56,7 @@ class Transfer {
 
       await transferRepository.save(transfer);
 
-      return response.status(201).json("Transferência realizada");
+      return response.status(201).json("Transfer made");
     } catch (error) {
       return response.status(400).send();
     }
