@@ -56,7 +56,7 @@ class Transfer {
 
       await transferRepository.save(transfer);
 
-      return response.status(201).json("Transfer made");
+      return response.status(201).json({ message: "Transfer made" });
     } catch (error) {
       return response.status(400).send();
     }

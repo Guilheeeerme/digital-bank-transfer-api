@@ -3,7 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import Account from "./Account";
@@ -16,7 +16,10 @@ export default class Transfer {
   @Column()
   account_id: string;
 
-  @OneToOne((type) => Account)
+  @ManyToOne((type) => Account, (account) => account.transfers, {
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
   @JoinColumn({ name: "account_destination_id" })
   account_destination_id: Account;
 

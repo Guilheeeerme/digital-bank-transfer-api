@@ -4,10 +4,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 
 import { hash } from "bcrypt";
+import Transfer from "./Transfer";
 
 @Entity("accounts")
 export default class Account {
@@ -29,9 +31,17 @@ export default class Account {
   @CreateDateColumn()
   created_at: Date;
 
+  @OneToMany(() => Transfer, (transfer) => transfer.account_destination_id)
+  transfers: Transfer[];
+
   @BeforeInsert()
   @BeforeUpdate()
   async hashPassword() {
     this.secret = await hash(this.secret, 8);
   }
 }
+
+// name
+// cpf
+// secret
+// balance
