@@ -6,7 +6,7 @@
 
 ### <p> Regras gerais </p>
 
-- Usar formato JSON para leitura e escrita ( ex: `GET /accounts/` retorna Json, `POST /accounts/` `{ name: "John Doe" }` )
+- Usar formato JSON para leitura e escrita (ex: `GET /accounts/` retorna Json, `POST /accounts/` `{name: "John Doe"}`)
 
 ### <p> Rotas esperadas </p>
 
