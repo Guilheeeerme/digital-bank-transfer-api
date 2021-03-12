@@ -2,7 +2,6 @@
 
 ## O desafio é criar uma API de transferencia entre contas internas de um banco digital.
 
-===
 
 ### <p> Regras gerais </p>
 
