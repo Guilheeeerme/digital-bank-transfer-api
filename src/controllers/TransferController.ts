@@ -36,7 +36,7 @@ class Transfer {
       }
 
       if (origem.balance <= 0 || amount > origem.balance) {
-        return response.status(400).json({ error: "Insufficient balance" });
+        return response.status(403).json({ error: "Insufficient balance" });
       }
 
       await accountRepository.update(
