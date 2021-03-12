@@ -1,6 +1,6 @@
 # Projeto realizado com base [Nesse Desafio](https://gist.github.com/guilhermebr/fb0d5896d76634703d385a4c68b730d8)
 
-## O desafio é criar uma API de transferencia entre contas Internas de um banco digital.
+## O desafio é criar uma API de transferencia entre contas internas de um banco digital.
 
 ===
 
@@ -72,3 +72,14 @@ _Regras para esta rota_
 - O `account_id` deve ser obtido no Token enviado
 - Caso `Account` de origem não tenha saldo, retornar um código de erro apropriado
 - Atualizar o `balance` das contas
+
+<hr>
+
+Tecnologias utilizadas:
+
+- Nodejs
+- TypeScript
+- TypeORM
+- PostgresSQL
+- Bcrypt
+- Jsonwebtoken
